@@ -25,7 +25,10 @@ export default function HomeScreen() {
         onSubmit={(e) => {
           e.preventDefault();
           if(senha) {
-            nookies.set(null, 'SENHA_SECRETA', senha);
+            nookies.set(null, 'SENHA_SECRETA', senha, {
+              maxAge: 30 * 24 * 60 * 60,
+              path: '/',
+            });
             router.push('/area-logada');
           } else {
             alert('Informe uma senha!');
