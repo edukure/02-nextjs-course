@@ -19,8 +19,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  console.log('Gerou!');
   const id = context.params.id;
+  console.log(`Gerou! ${id}`);
   const dadosDaAPI = await fetch(`https://fakeapi-omariosouto.vercel.app/api/posts/${id}`)
   .then((res) => res.json());
   const post = dadosDaAPI;
@@ -39,6 +39,7 @@ export async function getStaticProps(context) {
       date: post.date,
       content: post.content,
     }, 
+    revalidate: 60,
   }
 }
 
