@@ -6,7 +6,9 @@
     "start": "next start",
     "dev": "next dev",
     "build": "next build",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next build && next export",
+    "start:static": "npx http-server ./out -c-1"
   },
   "keywords": [],
   "author": "",
